@@ -1,0 +1,31 @@
+<ion-view title="Order Page" id="page1">
+  <ion-content padding="true" class="has-header">
+    <form id="orderPage-form1" class="list">
+      <label class="item item-select" id="orderPage-select1">
+        <span class="input-label">Size</span>
+        <select ng-model="data.size" ng-options="size.id as size.label for size in sizes"></select>
+      </label>
+      <ion-item class="item-divider" id="orderPage-list-item-divider1"> Type of T-Shirt</ion-item>
+      <ion-radio id="orderPage-radio1" ng-model="data.graphic" ng-value="&quot;Blue&quot;">Blue Graphic</ion-radio>
+      <ion-radio id="orderPage-radio2" ng-model="data.graphic" ng-value="&quot;Green&quot;">Green Graphic</ion-radio>
+      <ion-radio id="orderPage-radio3" ng-model="data.graphic" ng-value="&quot;Red&quot;">Red Graphic</ion-radio>
+      <div class="spacer" style="width: 300px; height: 40px;"></div>
+      <div id="orderPage-markdown1" class="show-list-numbers-and-dots">
+        <p style="color:#000000;">Size: {{ data.size }}</p>
+
+        <p style="color:#000000;">Type: {{ data.graphic }}</p>
+
+        <p style="color:#000000;">Note: {{ data.note }}</p>
+
+        <p style="color:#000000;">Rush Shipping: {{ data.rushshipping }}</p>
+      </div>
+      <label class="item item-input" id="orderPage-input1">
+        <span class="input-label">Note</span>
+        <input type="text" placeholder="" ng-model="data.note">
+      </label>
+      <ion-toggle toggle-class="toggle-positive" id="orderPage-toggle1" ng-model="data.rushshipping">Rush Shipping?</ion-toggle>
+    </form>
+    <a ui-sref="orderConfirmation({&quot;size&quot;:&quot;&quot;+data.size+&quot;&quot;,&quot;graphic&quot;:&quot;&quot;+data.graphic+&quot;&quot;,&quot;note&quot;:&quot;&quot;+data.note+&quot;&quot;,&quot;rushshipping&quot;:&quot;&quot;+data.rushshipping+&quot;&quot;})"
+      id="orderPage-button1" class="button button-positive button-block">Order</a>
+  </ion-content>
+</ion-view>
